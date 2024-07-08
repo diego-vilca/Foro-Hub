@@ -1,7 +1,7 @@
 package com.vicv.foro.controller;
 
 import com.vicv.foro.domain.topico.DatosRegistroTopico;
-import com.vicv.foro.domain.topico.DatosRespuestaTopico;
+import com.vicv.foro.domain.topico.DatosResponseTopico;
 import com.vicv.foro.domain.topico.TopicoService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -20,11 +20,11 @@ public class TopicoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<DatosRespuestaTopico> registrarTopico(@RequestBody @Valid DatosRegistroTopico datos,
-                                                                UriComponentsBuilder uriComponentsBuilder){
-        DatosRespuestaTopico datosRespuestaTopico = topicoService.guardarTopico(datos);
-        URI url = uriComponentsBuilder.path("/topico/{id}").buildAndExpand(datosRespuestaTopico.id()).toUri();
+    public ResponseEntity<DatosResponseTopico> registrarTopico(@RequestBody @Valid DatosRegistroTopico datos,
+                                                               UriComponentsBuilder uriComponentsBuilder){
+        DatosResponseTopico datosResponseTopico = topicoService.guardarTopico(datos);
+        URI url = uriComponentsBuilder.path("/topico/{id}").buildAndExpand(datosResponseTopico.id()).toUri();
 
-        return ResponseEntity.created(url).body(datosRespuestaTopico);
+        return ResponseEntity.created(url).body(datosResponseTopico);
     }
 }

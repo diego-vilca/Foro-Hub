@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 
 @Service
-public class TopicoServiceImp implements TopicoService{
+public class TopicoServiceImpl implements TopicoService{
     @Autowired
     private TopicoRepository topicoRepository;
     @Autowired
@@ -17,7 +17,7 @@ public class TopicoServiceImp implements TopicoService{
     private CursoRepository cursoRepository;
 
     @Override
-    public DatosRespuestaTopico guardarTopico(DatosRegistroTopico dato) {
+    public DatosResponseTopico guardarTopico(DatosRegistroTopico dato) {
         Topico topico = topicoRepository.save(new Topico(
                 null,
                 dato.titulo(),
@@ -29,6 +29,6 @@ public class TopicoServiceImp implements TopicoService{
                 null
         ));
 
-        return new DatosRespuestaTopico(topico.getId(), topico.getTitulo(), topico.getMensaje(), topico.getFechaCreacion());
+        return new DatosResponseTopico(topico.getId(), topico.getTitulo(), topico.getMensaje(), topico.getFechaCreacion());
     }
 }

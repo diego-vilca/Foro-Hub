@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuarioServiceImp implements UsuarioService{
+public class UsuarioServiceImpl implements UsuarioService{
     @Autowired
     UsuarioRepository usuarioRepository;
 
     @Override
-    public DatosRespuestaUsuario guardarUsuario(DatosRegistroUsuario datos) {
+    public DatosResponseUsuario guardarUsuario(DatosRegistroUsuario datos) {
         Usuario usuario = usuarioRepository.save(new Usuario(datos));
-        return new DatosRespuestaUsuario(usuario.getId(), usuario.getNombre(), usuario.getCorreoElectronico(), usuario.getRol());
+        return new DatosResponseUsuario(usuario.getId(), usuario.getNombre(), usuario.getCorreoElectronico(), usuario.getRol());
     }
 }

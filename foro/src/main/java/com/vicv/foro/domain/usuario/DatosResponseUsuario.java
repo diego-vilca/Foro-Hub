@@ -1,6 +1,6 @@
 package com.vicv.foro.domain.usuario;
 
-public record DatosRespuestaUsuario(
+public record DatosResponseUsuario(
         Long id,
         String nombre,
         String correoelectronico,

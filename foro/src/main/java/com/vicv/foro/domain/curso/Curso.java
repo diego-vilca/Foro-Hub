@@ -25,4 +25,8 @@ public class Curso {
             fetch = FetchType.LAZY,
             mappedBy = "curso")
     private List<Topico> topicos;
+
+    public Curso (DatosRegistroCurso datos){
+        this.nombre = datos.nombre();
+    }
 }

@@ -32,4 +32,5 @@ public class Respuesta {
             referencedColumnName = "id")
     private Usuario autor;
     private Boolean esSolucion;
+
 }
