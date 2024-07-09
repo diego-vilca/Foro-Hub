@@ -21,7 +21,7 @@ public class Usuario {
     private Long id;
     private String nombre;
     private String correoElectronico;
-    private String contraseña;
+    private String contrasenia;
     @Enumerated(EnumType.STRING)
     private Rol rol;
     @OneToMany(
@@ -38,7 +38,7 @@ public class Usuario {
     public Usuario(DatosRegistroUsuario datos){
         this.nombre = datos.nombre();
         this.correoElectronico = datos.correoElectronico();
-        this.contraseña = datos.contraseña();
+        this.contrasenia = datos.contrasenia();
         this.rol = datos.rol();
     }
 }

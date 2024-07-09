@@ -10,7 +10,7 @@ public record DatosRegistroUsuario(
         @Email
         String correoElectronico,
         @NotBlank
-        String contraseña,
+        String contrasenia,
         Rol rol
 ) {
 }
