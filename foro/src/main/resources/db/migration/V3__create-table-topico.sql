@@ -2,7 +2,7 @@ CREATE TABLE TOPICO (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
     mensaje TEXT NOT NULL,
-    fechaCreacion TIMESTAMP NOT NULL,
+    fecha_creacion TIMESTAMP NOT NULL,
     status VARCHAR(255) NOT NULL,
     id_autor BIGINT,
     id_curso BIGINT,

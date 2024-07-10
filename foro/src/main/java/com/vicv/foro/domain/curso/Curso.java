@@ -18,8 +18,9 @@ public class Curso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nombre;
     @Enumerated(EnumType.STRING)
-    private Nombre nombre;
+    private Categoria categoria;
     @OneToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
@@ -28,5 +29,6 @@ public class Curso {
 
     public Curso (DatosRegistroCurso datos){
         this.nombre = datos.nombre();
+        this.categoria = datos.categoria();
     }
 }

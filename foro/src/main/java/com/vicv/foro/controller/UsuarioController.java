@@ -25,7 +25,6 @@ public class UsuarioController {
     @PostMapping
     public ResponseEntity<DatosResponseUsuario> registrarUsuario(@RequestBody @Valid DatosRegistroUsuario dato,
                                                                  UriComponentsBuilder uriComponentsBuilder){
-
         DatosResponseUsuario datosResponseUsuario = usuarioService.guardarUsuario(dato);
         URI url = uriComponentsBuilder.path("/usuario/{id}").buildAndExpand(datosResponseUsuario.id()).toUri();
 

@@ -10,7 +10,16 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Override
     public DatosResponseUsuario guardarUsuario(DatosRegistroUsuario datos) {
-        Usuario usuario = usuarioRepository.save(new Usuario(datos));
+        DatosRegistroUsuario datosRegistrados;
+
+        //si el rol del usuario es null asigno por defecto el rol USUARIO
+        if (datos.rol() == null){
+            datosRegistrados = new DatosRegistroUsuario(datos.nombre(), datos.correoElectronico(), datos.contrasenia());
+        }else{
+            datosRegistrados = datos;
+        }
+
+        Usuario usuario = usuarioRepository.save(new Usuario(datosRegistrados));
         return new DatosResponseUsuario(usuario.getId(), usuario.getNombre(), usuario.getCorreoElectronico(), usuario.getRol());
     }
 }

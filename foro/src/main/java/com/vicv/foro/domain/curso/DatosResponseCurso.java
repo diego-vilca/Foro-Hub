@@ -2,6 +2,7 @@ package com.vicv.foro.domain.curso;
 
 public record DatosResponseCurso(
         Long id,
-        Nombre nombre
+        String nombre,
+        Categoria categoria
 ) {
 }

@@ -13,4 +13,7 @@ public record DatosRegistroUsuario(
         String contrasenia,
         Rol rol
 ) {
+        public DatosRegistroUsuario(String nombre, String correoElectronico, String contrasenia){
+                this(nombre, correoElectronico, contrasenia, Rol.USUARIO);
+        }
 }

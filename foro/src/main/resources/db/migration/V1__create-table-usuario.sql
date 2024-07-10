@@ -1,7 +1,7 @@
 CREATE TABLE USUARIO(
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
-    correoElectronico VARCHAR(255) NOT NULL UNIQUE,
+    correo_electronico VARCHAR(255) NOT NULL UNIQUE,
     contrasenia VARCHAR(255) NOT NULL,
     rol VARCHAR(255) NOT NULL
 );

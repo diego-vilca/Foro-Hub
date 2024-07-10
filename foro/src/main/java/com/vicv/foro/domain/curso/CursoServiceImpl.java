@@ -12,6 +12,6 @@ public class CursoServiceImpl implements CursoService{
     public DatosResponseCurso guardarCurso(DatosRegistroCurso datos) {
         Curso curso = cursoRepository.save(new Curso(datos));
 
-        return new DatosResponseCurso(curso.getId(), curso.getNombre());
+        return new DatosResponseCurso(curso.getId(), curso.getNombre(), curso.getCategoria());
     }
 }
