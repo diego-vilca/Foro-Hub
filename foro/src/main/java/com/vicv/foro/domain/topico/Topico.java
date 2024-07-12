@@ -23,7 +23,7 @@ public class Topico {
     private String mensaje;
     private LocalDateTime fechaCreacion;
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.ABIERTO;
     @ManyToOne
     @JoinColumn(
             name = "id_autor",
@@ -39,6 +39,29 @@ public class Topico {
             fetch = FetchType.LAZY,
             mappedBy = "topico")
     private List<Respuesta> respuestas;
+    private Boolean activo = true;
+
+    public Topico(String titulo, String mensaje, Usuario usuario, Curso curso){
+        this.titulo = titulo;
+        this.mensaje = mensaje;
+        this.autor = usuario;
+        this.curso = curso;
+        this.fechaCreacion = LocalDateTime.now();
+    }
+
+    public void actualizarDatos(DatosActualizarTopico datos) {
+        if (datos.titulo() != null){
+            this.titulo = datos.titulo();
+        }
+        if (datos.mensaje() != null){
+            this.mensaje = datos.mensaje();
+        }
+    }
+
+
+    public void desactivarTopico() {
+        this.activo = false;
+    }
 }
 
 

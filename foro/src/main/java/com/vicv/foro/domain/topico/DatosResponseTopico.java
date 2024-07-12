@@ -8,4 +8,7 @@ public record DatosResponseTopico(
     String mensaje,
     LocalDateTime fecha
 ) {
+    public DatosResponseTopico (Topico topico){
+        this(topico.getId(), topico.getTitulo(), topico.getMensaje(), topico.getFechaCreacion());
+    }
 }

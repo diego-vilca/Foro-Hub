@@ -21,9 +21,9 @@ public class RespuestaServiceImpl implements RespuestaService{
         Respuesta respuesta = respuestaRepository.save(new Respuesta(
                 null,
                 datos.mensaje(),
-                topicoRepository.findById(datos.idTopico()).get(),
+                topicoRepository.findByIdAndActivoTrue(datos.idTopico()).get(),
                 LocalDateTime.now(),
-                usuarioRepository.findById(datos.idUsuario()).get(),
+                usuarioRepository.findById(datos.idAutor()).get(),
                 false
 
         ));
